@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 style="margin-bottom: 40px;" class="box">Calculate your age 😃</h1>
+    <div class="mainContainer">
+        <div class="inputBox">
+            <input class="input" id="dayInput" placeholder="day" min="1" max="31" type="number" value="2">
+            <input class="input" id="monthInput" placeholder="month" min="1" max="12" type="number" value="06">
+            <input class="input" id="yearInput" placeholder="year" min="1950" max="2024" type="number" value="2001">
+
+
+        </div>
+        <div class="displayBox">
+            <p class="box" id="day"> Days</p>
+            <p class="box" id="month"> Months</p>
+            <p class="box" id="year"> Years</p>
+            <p class="box" id="errorMessage"></p>
+
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

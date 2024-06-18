@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="clockContainer">
+        <div class="time">
+
+
+            <div class="clock">
+
+                <div class="clock-face">
+                    <div class="hand hour-hand"></div>
+                    <div class="hand min-hand"></div>
+
+
+                    <span style="--i: 1"><b>1</b></span>
+                    <span style="--i: 2"><b>2</b></span>
+                    <span style="--i: 3"><b>3</b></span>
+                    <span style="--i: 4"><b>4</b></span>
+                    <span style="--i: 5"><b>5</b></span>
+                    <span style="--i: 6"><b>6</b></span>
+                    <span style="--i: 7"><b>7</b></span>
+                    <span style="--i: 8"><b>8</b></span>
+                    <span style="--i: 9"><b>9</b></span>
+                    <span style="--i: 10"><b>10</b></span>
+                    <span style="--i: 11"><b>11</b></span>
+                    <span style="--i: 12"><b>12</b></span>
+
+
+                </div>
+            </div>
+            <div class="digitalTime">
+                <span id="digHours">00 <span> :
+                
+            </div>
+        </div>
+
+
+        <div class="minAndSec">
+            <div class="clock cl3">
+
+                <div class="clock-face clock-face3">
+                    <div class="hand mili-hand"></div>
+                    <span style="--i:1;">|</span>
+                <span style="--i:2;">|</span>
+                <span style="--i:3;">|</span>
+                <span style="--i:4;">|</span>
+                <span style="--i:5;">|</span>
+                <span style="--i:6;">|</span>
+                <span style="--i:7;">|</span>
+                <span style="--i:8;">|</span>
+                <span style="--i:9;">|</span>
+                <span style="--i:10;">|</span>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="clock cl2 ">
+            <div class="clock-face clock-face1">
+                <div class="hand second-hand"></div>
+
+                <span style="--i:1;">|</span>
+                <span style="--i:2;">|</span>
+                <span style="--i:3;">|</span>
+                <span style="--i:4;">|</span>
+                <span style="--i:5;">|</span>
+                <span style="--i:6;">|</span>
+                <span style="--i:7;">|</span>
+                <span style="--i:8;">|</span>
+                <span style="--i:9;">|</span>
+                <span style="--i:10;">|</span>
+                <span style="--i:11;">|</span>
+                <span style="--i:12;">|</span>
+                <span style="--i:13;">|</span>
+                <span style="--i:14;">|</span>
+                <span style="--i:15;">|</span>
+                <span style="--i:16;">|</span>
+                <span style="--i:17;">|</span>
+                <span style="--i:18;">|</span>
+                <span style="--i:19;">|</span>
+                <span style="--i:20;">|</span>
+                <span style="--i:21;">|</span>
+                <span style="--i:22;">|</span>
+
+                <span style="--i:23;">|</span>
+                <span style="--i:24;">|</span>
+                <span style="--i:25;">|</span>
+                <span style="--i:26;">|</span>
+                <span style="--i:27;">|</span>
+                <span style="--i:28;">|</span>
+                <span style="--i:29;">|</span>
+                <span style="--i:30;">|</span>
+                <span style="--i:31;">|</span>
+                <span style="--i:32;">|</span>
+                <span style="--i:33;">|</span>
+                <span style="--i:34;">|</span>
+                <span style="--i:35;">|</span>
+                <span style="--i:36;">|</span>
+                <span style="--i:37;">|</span>
+                <span style="--i:38;">|</span>
+                <span style="--i:39;">|</span>
+                <span style="--i:40;">|</span>
+                <span style="--i:41;">|</span>
+                <span style="--i:42;">|</span>
+                <span style="--i:43;">|</span>
+                <span style="--i:44;">|</span>
+                <span style="--i:45;">|</span>
+                <span style="--i:46;">|</span>
+                <span style="--i:47;">|</span>
+                <span style="--i:48;">|</span>
+                <span style="--i:49;">|</span>
+                <span style="--i:50;">|</span>
+                <span style="--i:51;">|</span>
+                <span style="--i:52;">|</span>
+                <span style="--i:53;">|</span>
+                <span style="--i:54;">|</span>
+                <span style="--i:55;">|</span>
+                <span style="--i:56;">|</span>
+                <span style="--i:57;">|</span>
+                <span style="--i:58;">|</span>
+                <span style="--i:59;">|</span>
+                <span style="--i:60;">|</span>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+    <style>
+        html {
+            background: #94c7e9;
+            background-size: cover;
+            font-family: 'helvetica neue';
+            text-align: center;
+            font-size: 10px;
+        }
+        
+        body {
+            margin: 0;
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+        }
+        
+        .clockContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .time {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .clock {
+            height: 30rem;
+            width: 30rem;
+            background-color: rgb(233, 155, 38);
+            border: 35px solid white;
+            margin: 50px 15px;
+            border-radius: 50%;
+            position: relative;
+            padding: 2rem;
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #EFEFEF, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .clock-face span {
+            position: absolute;
+            transform: rotate(calc(30deg * var(--i)));
+            inset: -1px;
+            text-align: center;
+        }
+        
+        .clock-face span b {
+            transform: rotate(calc(-30deg * var(--i)));
+            display: inline-block;
+            font-size: 20px;
+        }
+        
+        .cl1,
+        .cl2 {
+            height: 10rem;
+            width: 10rem;
+            background-color: #c8df45;
+            box-shadow: 0 0 40px 10px rgba(156, 216, 17, 0.2), inset 0 0 20px 1px #9ae412, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid black;
+        }
+        
+        .cl2 {
+            background-color: #1ea762;
+            box-shadow: 0 0 40px 10px rgba(14, 155, 61, 0.2), inset 0 0 20px 1px #1cdf2c, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-3px);
+        }
+        
+        .hand {
+            width: 50%;
+            height: 6px;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            transform: rotate(90deg);
+            transform-origin: 100%;
+            /* transition: all 0.05s; */
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+            border-radius: 5px;
+        }
+        
+        .hour-hand {
+            background-color: #e03737;
+            height: 10px;
+        }
+        
+        .second-hand {
+            transition: all 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+        
+        .clock-face1 span {
+            position: absolute;
+            transform: rotate(calc(6deg * var(--i)));
+            inset: -22px;
+            text-align: center;
+        }
+        
+        .clock-face20 span {
+            position: absolute;
+            transform: rotate(calc(30deg * var(--i)));
+            inset: -18px;
+            text-align: center;
+        }
+        
+        .clock-face20 span b {
+            transform: rotate(calc(-30deg * var(--i)));
+            display: inline-block;
+            font-size: 18px;
+        }
+        
+        .cl3 {
+            height: 10rem;
+            width: 10rem;
+            background-color: #c8df45;
+            box-shadow: 0 0 40px 10px rgba(156, 216, 17, 0.2), inset 0 0 20px 1px #9ae412, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid black;
+        }
+        
+        .cl3 .hand {
+            animation: rotate 1s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .clock-face3 span {
+            position: absolute;
+            transform: rotate(calc(36deg * var(--i)));
+            inset: -18px;
+            text-align: center;
+        }
+        
+        .clock-face20 span b {
+            transform: rotate(calc(-30deg * var(--i)));
+            display: inline-block;
+            font-size: 18px;
+        }
+        
+        .digitalTime {
+            background-color: #e03737;
+            width: 250px;
+            height: 80px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            color: #EFEFEF;
+            font-family: sans-serif;
+            font-size: 30px;
+        }
+        
+        .digitalTime span {
+            color: #EFEFEF;
+            font-family: sans-serif;
+            font-size: 40px;
+        }
+    </style>
+    <script>
+        let secondHand = document.querySelector('.second-hand')
+        let minHand = document.querySelector('.min-hand')
+        let hourHand = document.querySelector('.hour-hand')
+        let digitalHour = document.getElementById('digHours')
+        let digitalMin = document.getElementById('digMins')
+            // let miliHand = document.querySelector('.mili-hand')
+
+
+        console.log(secondHand)
+
+        function setDate() {
+            const now = new Date();
+            const second = now.getSeconds();
+            const minute = now.getMinutes();
+
+            let hour = now.getHours();
+            let at = "AM"
+
+
+
+
+
+
+            const secondInDegree = ((second / 60) * 360) + 90;
+            const minuteInDegree = ((minute / 60) * 360) + ((second / 60) * 6) + 90
+
+
+
+            if (hour > 12) {
+                at = "PM"
+                hour = hour - 12;
+            }
+
+
+
+            const hourInDegree = ((hour / 12) * 360) + ((minute / 60) * 30) + 90
+
+
+            secondHand.style.transform = `rotate(${secondInDegree}deg)`
+            minHand.style.transform = `rotate(${minuteInDegree}deg)`
+            hourHand.style.transform = `rotate(${hourInDegree}deg)`
+
+
+            digitalHour.innerHTML = `<strong>${hour} : ${minute} <span style="font-size:30px">${at}</span></strong>`;
+
+
+
+
+
+        }
+
+        setInterval(setDate, 1000);
+    </script>
+</body>
+
+</html>
