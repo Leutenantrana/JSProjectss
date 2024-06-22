@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOusingIndexedDB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header class="mainHeader">
+        <p class="header h1"> Your TO-DO List</p>
+    </header>
+
+    <main>
+        <p class="p2">TASKS</p>
+        <section class="displayBox">
+
+
+            <!-- <div class="task">
+                <div class="taskHeader">
+                    <h2 class="taskTitle">Complete javaScript</h2>
+                    <button class="dropDownBtn"><i class="fa-solid fa-caret-down"></i></button>
+
+
+                </div>
+                <div class="taskInfo show">
+                    <div class="date">
+                        <p>Starting Date <span class="startingDate">22-06-2024</span></p>
+                        <p>Last Date <span class="endDate">22-06-2024</span></p>
+                    </div>
+                    <div class="taskDetails">
+                        <p>STATUS <span class="status"> Pending</span></p>
+                        <div class="importantBox">
+                            <label for="important">IMPORTANT</label>
+                            <input type="checkbox">
+                        </div>
+                        <button class="deleteBtn">DELETE TASK</button>
+
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
+        </section>
+
+        <section class="newTask">
+            <header>
+                <div class="newTaskContainer">
+                    <p>Add new Task</p>
+                    <button class="addTaskBtn"><i class="fa-solid fa-plus"></i>  </button>
+                </div>
+            </header>
+
+            <form class="newForm show">
+                <p class="enter">Enter a New Task</p>
+                <div class="taskInputBox">
+                    <label for="taskInput">Enter new Task</label>
+                    <input id="taskInput" class="taskInput inp" type="text" placeholder="add new task">
+
+                </div>
+                <div class="dateInput">
+                    <div class="start">
+                        <label for="startingDate">Starting Date</label>
+                        <input id="startingDate" class="inp" type="date">
+                    </div>
+
+                    <div class="start">
+                        <label for="lastDate">Last Date</label>
+                        <input id="lastDate" class="inp" type="date">
+                    </div>
+                </div>
+                <button class="addBtn button">Add note</button>
+            </form>
+
+        </section>
+    </main>
+
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

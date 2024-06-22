@@ -1,0 +1,288 @@
+html {
+    background-color: rgb(98, 115, 216);
+}
+
+* {
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+body {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    /* background-color: rgb(225, 231, 229); */
+    width: 600px;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainHeader {
+    margin-top: 20px;
+}
+
+.show {
+    display: none;
+}
+
+.date,
+.taskDetails {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    margin: opx;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.state {
+    flex: 3;
+}
+
+.taskDetails {
+    justify-content: space-between;
+}
+
+.importantBox {
+    flex: 4;
+}
+
+.dateInput {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+header p {}
+
+.displayBox {
+    background-color: rgb(98, 115, 216);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    transition: all 0.8s ease-in-out;
+}
+
+.p2 {
+    font-size: 30px;
+    color: rgb(242, 242, 245);
+    background-color: rgb(98, 115, 216);
+    font-weight: 600;
+    text-align: start;
+    padding-right: 30px;
+    padding-bottom: 0px;
+}
+
+.task {
+    background-color: aliceblue;
+    padding-top: 10px;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin-bottom: 1px;
+    border: none;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.taskHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    transition: all 0.9s ease-in-out;
+}
+
+.taskHeader h2 {
+    padding-left: 30px;
+    font-size: 20px;
+    color: rgb(44, 33, 112);
+    align-items: start;
+}
+
+.taskHeader button {
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.taskInfo .date {
+    background-color: rgb(98, 115, 216);
+    color: aliceblue;
+    padding: 15px;
+    border-bottom: 1px solid white;
+}
+
+.taskDetails {
+    background-color: rgb(98, 115, 216);
+    color: aliceblue;
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+.taskDetails button {
+    background: transparent;
+    color: rgb(255, 253, 253);
+    background-color: brown;
+    border-radius: 2px;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+}
+
+.taskDetails button:hover {
+    transform: scale(1.2);
+}
+
+.taskDetails .status {
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.importantBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.importantBox input {
+    width: 30px;
+    height: 18px;
+    background-color: blueviolet;
+}
+
+.startingDate,
+.endDate {
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.newTask {
+    margin-bottom: 2px;
+    padding-top: 2px;
+    /* border-bottom: 1px solid rgb(17, 104, 204); */
+}
+
+.newTask header {
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+.newTaskContainer {
+    display: flex;
+    justify-content: start;
+    padding-right: 5%;
+}
+
+.newTaskContainer p {
+    font-size: 30px;
+    color: rgb(242, 242, 245);
+    background-color: rgb(98, 115, 216);
+    font-weight: 600;
+    text-align: start;
+    padding-bottom: 0px;
+}
+
+.addTaskBtn {
+    background: transparent;
+    padding-left: 16px;
+    border: none;
+    font-size: 30px;
+}
+
+.addTaskBtn:hover {
+    transform: scale(1.5);
+}
+
+.taskInputBox,
+.dateInput {
+    background-color: rgb(98, 115, 216);
+    padding: 2px;
+    padding-bottom: 5px;
+    background-color: aliceblue;
+}
+
+.taskInputBox {
+    /* border-bottom: 1px solid white; */
+    padding-bottom: 5px;
+    margin-bottom: 2px;
+    padding-top: 5px;
+}
+
+.enter {
+    background-color: rgb(98, 115, 216);
+    padding: 3px;
+    font-size: 30px;
+    font-weight: bold;
+    color: aliceblue;
+    text-align: start;
+}
+
+label {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 2px;
+    margin: 5px;
+}
+
+.taskInput {
+    width: 425px;
+    height: 30px;
+    border-radius: 2px;
+    border: none;
+    text-align: center;
+    background-color: rgb(228, 228, 228);
+}
+
+.taskInput:hover {
+    text-align: start;
+}
+
+.dateInput input {
+    padding: 2px;
+    margin: 2px;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(228, 228, 228);
+}
+
+.addBtn {
+    margin-top: 5px;
+    background-color: rgb(170, 25, 199);
+    color: white;
+    border: none;
+}
+
+.addBtn:hover {
+    transform: scale(1.4);
+}
+
+.move {
+    transform: rotate(-90deg);
+}
+
+.hl {
+    font-size: 12px;
+    text-align: end;
+    padding-bottom: 14px;
+    margin: 0px;
+    color: rgb(33, 19, 231);
+    flex: 2;
+}
