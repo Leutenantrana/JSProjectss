@@ -70,7 +70,7 @@ function getStatus(startingDate, endDate) {
 }
 
 
-function addNote() {
+function addNote(event) {
     let status;
     if (taskInput.value == '' || startingDateInput.value == '' || endDateInput.value == '') {
         alert("invalid input")
@@ -269,7 +269,13 @@ function updateLocalStorage(taskName) {
         tasks = JSON.parse(localStorage.getItem('tasks'))
     }
     task = tasks.find(task => task.task === taskName)
-    task.status = 'complete'
+    if (task.status === "complete") {
+        const status = getStatus(task.startDate, task.endDate)
+        task.status = status;
+    } else {
+        task.status = 'complete'
+    }
+
     tasks = tasks.filter(task => task.task !== taskName);
     console.log(task)
     tasks.push(task)
@@ -277,267 +283,59 @@ function updateLocalStorage(taskName) {
 
 }
 
+let styleContainer = document.querySelector('.mainHeader')
+let shadowShower = document.querySelector('.showShadow')
+const walk = 100;
+
+function showShadow(e) {
+    const { offsetWidth: width, offsetHeight: height } = styleContainer;
+    let { offsetX: x, offsetY: y } = e
+
+    if (this !== e.target) {
+        console.log(e.target.offsetLeft)
+        x = x + e.target.offsetLeft;
+        console.log(e.target.offsetTop)
+
+        y = y + e.target.offsetTop;
+        console.log("inside")
+
+    }
+    console.log(`the value of x now is ${x}`)
+    console.log(`the value of x now is ${y}`)
 
 
 
 
-// // inputGroup.forEach(item => item.addEventListener('input', function (e) {
-// //     console.log(typeof (e.target.value))
-// // }))
+    const walkx = Math.round((x / width) * walk - (walk / 2))
+    const walky = Math.round((y / height) * walk - (walk / 2))
+    console.log(`the value of walkx is ${walkx}`)
+    console.log(`the value of walky is ${walky}`)
 
-// // create a instance of db
 
-// let db;
+    shadowShower.style.textShadow = `
+      ${walkx}px  ${walky}px  0 rgba(0,0,0,0.7),
+            ${walky}px  ${walkx}px  0 rgba(0,255,0,0.7),
+                        ${walky * -1}px  ${walkx}px  0 rgba(0,255,255,0.7),
+                                    ${walky * -2}px  ${walkx * -1}px  0 rgba(255,255,0,0.7)
 
-// const openRequest = window.indexedDB.open('tasks_db', 1);
-// openRequest.addEventListener("error", () => {
-//     console.error('Database failed to open')
-// })
 
-// openRequest.addEventListener('success', () => {
-//     console.log('Database opened successfully')
-//     db = openRequest.result;
-//     displayData();
-// })
+
+
+    `;
 
 
 
 
 
-// openRequest.addEventListener('upgradeneeded', e => {
-//     db = e.target.result;
+}
 
-//     const objectStore = db.createObjectStore('tasks', { keyPath: 'id', autoIncrement: true });
-//     objectStore.createIndex('task', 'task', { unique: false });
-//     objectStore.createIndex('startDate', 'startingDate', { unique: false });
-//     objectStore.createIndex('endDate', 'endDate', { unique: false });
+function notShowShadow() {
+    console.log("outside")
+    shadowShower.style.textShadow = 'none';
+    // shadowShower.style.textShadow = `
+    //    1px 1px 0 rbg(255,255,255),
+    // `;
 
-//     console.log('Database setup complete');
-
-// })
-
-// submitBtn.addEventListener('click', addData);
-
-
-// function addData(e) {
-//     e.preventDefault();
-//     const newTask = { task: taskInput.value, startDate: startingDateInput.value, endDate: endDateInput.value };
-//     const transaction = db.transaction(['tasks'], 'readwrite');
-//     const objectStore = transaction.objectStore('tasks');
-//     const addRequest = objectStore.add(newTask)
-
-//     addRequest.addEventListener('success', () => {
-//         // Clear the form, ready for adding the next entry
-//         titleInput.value = '';
-//         bodyInput.value = '';
-//     });
-
-//     transaction.addEventListener('complete', () => {
-//         console.log('Transaction completed: database modification finished.');
-
-//         // update the display of data to show the newly added item, by running displayData() again.
-//         displayData();
-//     });
-
-//     transaction.addEventListener('error', () => console.log('Transaction not opened due to error'));
-
-// }
-
-// function displayData() {
-//     while (list.firstChild) {
-//         list.removeChild(list.firstChild)
-//     }
-//     const objectStore = db.transaction('tasks').objectStore('tasks');
-//     objectStore.openCurser().addEventListener('success', e => {
-//         const cursor = e.target.result;
-
-//         if (cursor) {
-//             const task = cursor.value;
-//             const taskElement = createTaskElement(task);
-//             tasksContainer.appendChild(taskElement);
-//             cursor.continue();
-//         }
-//     })
-// }
-
-// function createTaskElement(task) {
-//     const taskDiv = document.createElement('div');
-//     taskDiv.className = 'task';
-//     taskDiv.setAttribute('data-task-id', task.id);
-
-//     taskDiv.innerHTML = `
-//         <div class="taskHeader">
-//             <h2 class="taskTitle">${task.task}</h2>
-//             <button class="dropDownBtn"><i class="fa-solid fa-caret-down"></i></button>
-//         </div>
-//         <div class="taskInfo">
-//             <div class="date">
-//                 <p>Starting Date <span class="startingDate">${task.startDate}</span></p>
-//                 <p>Last Date <span class="endDate">${task.endDate}</span></p>
-//             </div>
-//             <div class="taskDetails">
-//                 <p>STATUS <span class="status">Pending</span></p>
-//                 <div class="importantBox">
-//                     <label for="important">IMPORTANT</label>
-//                     <input type="checkbox">
-//                 </div>
-//                 <button class="deleteBtn">DELETE TASK</button>
-//             </div>
-//         </div>
-//     `;
-
-//     taskDiv.querySelector('.dropDownBtn').addEventListener('click', () => {
-//         taskDiv.querySelector('.taskInfo').classList.toggle('show');
-//     });
-
-//     taskDiv.querySelector('.deleteBtn').addEventListener('click', () => {
-//         deleteTask(task.id);
-//     });
-
-//     return taskDiv;
-// }
-
-// function deleteTask(taskId) {
-//     const transaction = db.transaction(['tasks_os'], 'readwrite');
-//     const objectStore = transaction.objectStore('tasks_os');
-//     objectStore.delete(taskId).addEventListener('success', () => {
-//         console.log(`Task ${taskId} deleted.`);
-//         displayTasks();
-//     });
-// }
-
-
-// let dropDownButton = document.querySelector(".dropDownBtn");
-// let newTaskBtn = document.querySelector(".addTaskBtn");
-// let taskInput = document.querySelector(".taskInput");
-// let startingDateInput = document.querySelector(".startingDate");
-// let endDateInput = document.querySelector(".endDate");
-// let submitBtn = document.querySelector('.addBtn');
-// const list = document.querySelector('.displayBox');
-
-// let taskInfo = document.querySelector(".taskInfo");
-// let newForm = document.querySelector(".newForm");
-
-// console.log(dropDownButton);
-
-// function showTask() {
-//     taskInfo.classList.toggle('show');
-// }
-
-// function showTaskForm() {
-//     newForm.classList.toggle('show');
-// }
-
-// dropDownButton.addEventListener("click", showTask);
-// newTaskBtn.addEventListener("click", showTaskForm);
-
-// Create a instance of db
-// let db;
-
-// const openRequest = window.indexedDB.open('tasks_db', 1);
-
-// openRequest.addEventListener("error", () => {
-//     console.error('Database failed to open');
-// });
-
-// openRequest.addEventListener('success', () => {
-//     console.log('Database opened successfully');
-//     db = openRequest.result;
-//     displayData();
-// });
-
-// openRequest.addEventListener('upgradeneeded', e => {
-//     db = e.target.result;
-//     const objectStore = db.createObjectStore('tasks', { keyPath: 'id', autoIncrement: true });
-//     objectStore.createIndex('task', 'task', { unique: false });
-//     objectStore.createIndex('startDate', 'startDate', { unique: false });
-//     objectStore.createIndex('endDate', 'endDate', { unique: false });
-
-//     console.log('Database setup complete');
-// });
-
-// submitBtn.addEventListener('click', addData);
-
-// function addData(e) {
-//     e.preventDefault();
-//     const newTask = { task: taskInput.value, startDate: startingDateInput.value, endDate: endDateInput.value };
-//     const transaction = db.transaction(['tasks'], 'readwrite');
-//     const objectStore = transaction.objectStore('tasks');
-//     const addRequest = objectStore.add(newTask);
-
-//     addRequest.addEventListener('success', () => {
-//         // Clear the form, ready for adding the next entry
-//         taskInput.value = '';
-//         startingDateInput.value = '';
-//         endDateInput.value = '';
-//     });
-
-//     transaction.addEventListener('complete', () => {
-//         console.log('Transaction completed: database modification finished.');
-//         displayData();
-//     });
-
-//     transaction.addEventListener('error', () => console.log('Transaction not opened due to error'));
-// }
-
-// function displayData() {
-//     while (list.firstChild) {
-//         list.removeChild(list.firstChild);
-//     }
-//     const objectStore = db.transaction('tasks').objectStore('tasks');
-//     objectStore.openCursor().addEventListener('success', e => {
-//         const cursor = e.target.result;
-//         if (cursor) {
-//             const task = cursor.value;
-//             const taskElement = createTaskElement(task);
-//             list.appendChild(taskElement);
-//             cursor.continue();
-//         }
-//     });
-// }
-
-// function createTaskElement(task) {
-//     const taskDiv = document.createElement('div');
-//     taskDiv.className = 'task';
-//     taskDiv.setAttribute('data-task-id', task.id);
-
-//     taskDiv.innerHTML = `
-//         <div class="taskHeader">
-//             <h2 class="taskTitle">${task.task}</h2>
-//             <button class="dropDownBtn"><i class="fa-solid fa-caret-down"></i></button>
-//         </div>
-//         <div class="taskInfo">
-//             <div class="date">
-//                 <p>Starting Date <span class="startingDate">${task.startDate}</span></p>
-//                 <p>Last Date <span class="endDate">${task.endDate}</span></p>
-//             </div>
-//             <div class="taskDetails">
-//                 <p>STATUS <span class="status">Pending</span></p>
-//                 <div class="importantBox">
-//                     <label for="important">IMPORTANT</label>
-//                     <input type="checkbox">
-//                 </div>
-//                 <button class="deleteBtn">DELETE TASK</button>
-//             </div>
-//         </div>
-//     `;
-
-//     taskDiv.querySelector('.dropDownBtn').addEventListener('click', () => {
-//         taskDiv.querySelector('.taskInfo').classList.toggle('show');
-//     });
-
-//     taskDiv.querySelector('.deleteBtn').addEventListener('click', () => {
-//         deleteTask(task.id);
-//     });
-
-//     return taskDiv;
-// }
-
-// function deleteTask(taskId) {
-//     const transaction = db.transaction(['tasks'], 'readwrite');
-//     const objectStore = transaction.objectStore('tasks');
-//     objectStore.delete(taskId).addEventListener('success', () => {
-//         console.log(`Task ${taskId} deleted.`);
-//         displayData();
-//     });
-// }
+}
+styleContainer.addEventListener("mouseover", showShadow)
+styleContainer.addEventListener("mouseout", notShowShadow)

@@ -27,6 +27,8 @@ body {
 
 .mainHeader {
     margin-top: 20px;
+    padding-top: 50px;
+    height: 120px;
 }
 
 .show {
@@ -68,9 +70,8 @@ body {
     font-weight: 600;
     margin-bottom: 25px;
     font-style: italic;
+    line-height: 1;
 }
-
-header p {}
 
 .displayBox {
     background-color: rgb(98, 115, 216);

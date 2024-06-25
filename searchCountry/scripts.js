@@ -4,6 +4,7 @@ let countryArr = [];
 async function fetchCountries() {
     try {
         const response = await fetch('https://restcountries.com/v3.1/all');
+        console.log(response)
         const data = await response.json();
         countryArr.push(...data)
     } catch (error) {
